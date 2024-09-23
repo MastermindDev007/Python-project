@@ -52,159 +52,149 @@ class Bill_App:
         details.place(x=0, y=80, relwidth=1)
 
         # Additional style changes for a more unique look:
-        details.config(highlightbackground="#fff", highlightthickness=2)  # Thin white outline
+        # details.config(highlightbackground="#fff", highlightthickness=2)  # Thin white outline
 
         # Customer Name Label
-        cust_name = Label(details, text="Customer Name", font=("Arial Black", 14), bg="#122620", fg="#fff", padx=5, pady=5)
-        cust_name.grid(row=0, column=0, padx=15)
+        cust_name = Label(details, text="Customer Name: ", font=("Arial Black", 14), bg="#122620", fg="#fff", padx=5, pady=5)
+        cust_name.grid(row=0, column=0, padx=(5, 0))  # Reduced padx on the right side
 
         # Customer Name Entry (borderless)
-        cust_entry = Entry(details, width=30, textvariable=StringVar(), relief=FLAT)  # Flat relief for no border
-        cust_entry.grid(row=0, column=1, padx=8)
+        cust_entry = Entry(details, width=25, textvariable=self.c_name, font=("Arial Black", 12), relief=FLAT)
+        cust_entry.grid(row=0, column=1, padx=(0, 5))  # Reduced padx on the left side
 
         # Contact No Label
-        contact_name = Label(details, text="Contact No.", font=("Arial Black", 14), bg="#122620", fg="#fff", padx=5, pady=5)
-        contact_name.grid(row=0, column=2, padx=10)
+        contact_name = Label(details, text="Contact No: ", font=("Arial Black", 14), bg="#122620", fg="#fff", padx=5, pady=5)
+        contact_name.grid(row=0, column=2, padx=(50, 0))  # Increased padx on the left side
 
         # Contact Entry (borderless)
-        contact_entry = Entry(details, width=30, textvariable=StringVar(), relief=FLAT)
-        contact_entry.grid(row=0, column=3, padx=8)
+        contact_entry = Entry(details, width=25, textvariable=self.phone, font=("Arial Black", 12), relief=FLAT)
+        contact_entry.grid(row=0, column=3, padx=(0, 20))  # Increased padx on the right side
 
         # Bill No Label
-        bill_name = Label(details, text="Bill.No.", font=("Arial Black", 14), bg="#122620", fg="#fff", padx=5, pady=5)
-        bill_name.grid(row=0, column=4, padx=10)
+        bill_name = Label(details, text="Bill.No: ", font=("Arial Black", 14), bg="#122620", fg="#fff", padx=5, pady=5)
+        bill_name.grid(row=0, column=4, padx=(50, 0))  # Increased padx on the left side
 
         # Bill No Entry (borderless)
-        bill_entry = Entry(details, width=30, textvariable=StringVar(), relief=FLAT)
-        bill_entry.grid(row=0, column=5, padx=8)
+        bill_entry = Entry(details, width=25, textvariable=self.bill_no, font=("Arial Black", 12), relief=FLAT)
+        bill_entry.grid(row=0, column=5, padx=(0, 50))  # Increased padx on the right side
 
-        # details=LabelFrame(self.root,text="Customer Details",font=("Arial Black",12),bg="#006400",fg="white",relief=GROOVE,bd=10)
-        # details.place(x=0,y=80,relwidth=1)
-        # cust_name=Label(details,text="Customer Name",font=("Arial Black",14),bg="#006400",fg="white").grid(row=0,column=0,padx=15)
-        #
-        # cust_entry=Entry(details,borderwidth=4,width=30,textvariable=self.c_name).grid(row=0,column=1,padx=8)
-        #
-        # contact_name=Label(details,text="Contact No.",font=("Arial Black",14),bg="#006400",fg="white").grid(row=0,column=2,padx=10)
-        #
-        # contact_entry=Entry(details,borderwidth=4,width=30,textvariable=self.phone).grid(row=0,column=3,padx=8)
-        #
-        # bill_name=Label(details,text="Bill.No.",font=("Arial Black",14),bg="#006400",fg="white").grid(row=0,column=4,padx=10)
-        #
-        # bill_entry=Entry(details,borderwidth=4,width=30,textvariable=self.bill_no).grid(row=0,column=5,padx=8)
         #=======================================Resturant Menu=================================================================
-        snacks=LabelFrame(self.root,text="Starter",font=("Arial Black",12),bg="#E5B4F3",fg="#6C3483",relief=GROOVE,bd=10)
-        snacks.place(x=5,y=180,height=380,width=325)
+        snacks = LabelFrame(self.root, text="Starter", font=("Arial Black", 14, 'bold'), bg="#122620", fg="#F3B44B",relief=FLAT, padx=30, pady=30)
+        snacks.place(x=0, y=210, height=400, width=350)
 
-        item1=Label(snacks,text="Nutella",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=0,column=0,pady=11)
-        item1_entry=Entry(snacks,borderwidth=2,width=15,textvariable=self.nutella).grid(row=0,column=1,padx=10)
+        item1 = Label(snacks, text="Nutella", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=0, column=0, pady=7, sticky="w")
+        item1_entry=Entry(snacks, width=15, textvariable = self.nutella, font=("Arial Black", 11), relief=FLAT).grid(row=0,column=1,padx=40)
 
-        item2=Label(snacks,text="Noodles",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=1,column=0,pady=11)
-        item2_entry=Entry(snacks,borderwidth=2,width=15,textvariable=self.noodles).grid(row=1,column=1,padx=10)
+        item2 = Label(snacks, text="Noodles", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=1, column=0, pady=7, sticky="w")
+        item2_entry=Entry(snacks,width=15,textvariable=self.noodles, font=("Arial Black", 11), relief=FLAT).grid(row=1,column=1,padx=40)
 
-        item3=Label(snacks,text="lays",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=2,column=0,pady=11)
-        item3_entry=Entry(snacks,borderwidth=2,width=15,textvariable=self.lays).grid(row=2,column=1,padx=10)
+        item3 = Label(snacks, text="Lays", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=2, column=0, pady=7, sticky="w")
+        item3_entry=Entry(snacks,width=15,textvariable=self.lays, font=("Arial Black", 11), relief=FLAT).grid(row=2,column=1,padx=40)
 
-        item4=Label(snacks,text="oreo",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=3,column=0,pady=11)
-        item4_entry=Entry(snacks,borderwidth=2,width=15,textvariable=self.oreo).grid(row=3,column=1,padx=10)
+        item4 = Label(snacks, text="Oreo", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=3, column=0, pady=7, sticky="w")
+        item4_entry=Entry(snacks,width=15,textvariable=self.oreo, font=("Arial Black", 11), relief=FLAT).grid(row=3,column=1,padx=40)
 
-        item5=Label(snacks,text="muffin",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=4,column=0,pady=11)
-        item5_entry=Entry(snacks,borderwidth=2,width=15,textvariable=self.muffin).grid(row=4,column=1,padx=10)
+        item5 = Label(snacks, text="Muffin", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=4, column=0, pady=7, sticky="w")
+        item5_entry=Entry(snacks,width=15,textvariable=self.muffin, font=("Arial Black", 11), relief=FLAT).grid(row=4,column=1,padx=40)
 
-        item6=Label(snacks,text="silk",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=5,column=0,pady=11)
-        item6_entry=Entry(snacks,borderwidth=2,width=15,textvariable=self.silk).grid(row=5,column=1,padx=10)
+        item6 = Label(snacks, text="Silk", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=5, column=0, pady=7, sticky="w")
+        item6_entry=Entry(snacks,width=15,textvariable=self.silk, font=("Arial Black", 11), relief=FLAT).grid(row=5,column=1,padx=40)
 
-        item7=Label(snacks,text="namkeen",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=6,column=0,pady=11)
-        item7_entry=Entry(snacks,borderwidth=2,width=15,textvariable=self.namkeen).grid(row=6,column=1,padx=10)
+        item7 = Label(snacks, text="Namkeen", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=6, column=0, pady=7, sticky="w")
+        item7_entry=Entry(snacks, width=15,textvariable=self.namkeen, font=("Arial Black", 11), relief=FLAT).grid(row=6,column=1,padx=40)
+
         #=================================== Main Course =====================================================================================
-        grocery=LabelFrame(self.root,text="Main Course",font=("Arial Black",12),relief=GROOVE,bd=10,bg="#E5B4F3",fg="#6C3483")
-        grocery.place(x=340,y=180,height=380,width=325)
 
-        item8=Label(grocery,text="atta",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=0,column=0,pady=11)
-        item8_entry=Entry(grocery,borderwidth=2,width=15,textvariable=self.atta).grid(row=0,column=1,padx=10)
+        grocery = LabelFrame(self.root, text="Main Course", font=("Arial Black", 14, 'bold'), bg="#122620", fg="#F3B44B",relief=FLAT, padx=30, pady=30)
+        grocery.place(x=380, y=210, height=400, width=350)
 
-        item9=Label(grocery,text="Pasta",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=1,column=0,pady=11)
-        item9_entry=Entry(grocery,borderwidth=2,width=15,textvariable=self.pasta).grid(row=1,column=1,padx=10)
+        item8=Label(grocery, text="Atta", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=0, column=0, pady=7, sticky="w")
+        item8_entry=Entry(grocery, width=15, textvariable=self.atta, font=("Arial Black", 11), relief=FLAT).grid(row=0,column=1,padx=80)
 
-        item10=Label(grocery,text="Rice",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=2,column=0,pady=11)
-        item10_entry=Entry(grocery,borderwidth=2,width=15,textvariable=self.rice).grid(row=2,column=1,padx=10)
+        item9=Label(grocery ,text="Pasta", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=1,column=0,pady=7, sticky="w")
+        item9_entry=Entry(grocery, width=15,textvariable=self.pasta, font=("Arial Black", 11), relief=FLAT).grid(row=1,column=1,padx=80)
 
-        item11=Label(grocery,text="oil",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=3,column=0,pady=11)
-        item11_entry=Entry(grocery,borderwidth=2,width=15,textvariable=self.oil).grid(row=3,column=1,padx=10)
+        item10=Label(grocery ,text="Rice", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=2,column=0,pady=7, sticky="w")
+        item10_entry=Entry(grocery, width=15,textvariable=self.rice, font=("Arial Black", 11), relief=FLAT).grid(row=2,column=1,padx=80)
 
-        item12=Label(grocery,text="sugar",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=4,column=0,pady=11)
-        item12_entry=Entry(grocery,borderwidth=2,width=15,textvariable=self.sugar).grid(row=4,column=1,padx=10)
+        item11=Label(grocery ,text="oil", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=3,column=0,pady=7, sticky="w")
+        item11_entry=Entry(grocery, width=15,textvariable=self.oil, font=("Arial Black", 11), relief=FLAT).grid(row=3,column=1,padx=80)
 
-        item13=Label(grocery,text="Daal",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=5,column=0,pady=11)
-        item13_entry=Entry(grocery,borderwidth=2,width=15,textvariable=self.dal).grid(row=5,column=1,padx=10)
+        item12=Label(grocery ,text="sugar", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=4,column=0,pady=7, sticky="w")
+        item12_entry=Entry(grocery, width=15,textvariable=self.sugar, font=("Arial Black", 11), relief=FLAT).grid(row=4,column=1,padx=80)
 
-        item14=Label(grocery,text="tea",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=6,column=0,pady=11)
-        item14_entry=Entry(grocery,borderwidth=2,width=15,textvariable=self.tea).grid(row=6,column=1,padx=10)
+        item13=Label(grocery ,text="Daal", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=5,column=0,pady=7, sticky="w")
+        item13_entry=Entry(grocery, width=15,textvariable=self.dal, font=("Arial Black", 11), relief=FLAT).grid(row=5,column=1,padx=80)
+
+        item14=Label(grocery ,text="tea", font=("Arial Black", 14), bg="#122620", fg="#fff", anchor="w").grid(row=6,column=0,pady=7, sticky="w")
+        item14_entry=Entry(grocery, width=15,textvariable=self.tea, font=("Arial Black", 11), relief=FLAT).grid(row=6,column=1,padx=80)
+
         #========================================Snacks===============================================================================
-        hygine=LabelFrame(self.root,text="Snacks",font=("Arial Black",12),relief=GROOVE,bd=10,bg="#E5B4F3",fg="#6C3483")
-        hygine.place(x=677,y=180,height=380,width=325)
-
-        item15=Label(hygine,text="soap",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=0,column=0,pady=11)
-        item15_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.soap).grid(row=0,column=1,padx=10)
-
-        item16=Label(hygine,text="shampoo",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=1,column=0,pady=11)
-        item16_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.shampoo).grid(row=1,column=1,padx=10)
-
-        item17=Label(hygine,text="lotion",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=2,column=0,pady=11)
-        item17_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.lotion).grid(row=2,column=1,padx=10)
-
-        item18=Label(hygine,text="cream",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=3,column=0,pady=11)
-        item18_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.cream).grid(row=3,column=1,padx=10)
-
-        item19=Label(hygine,text="foam",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=4,column=0,pady=11)
-        item19_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.foam).grid(row=4,column=1,padx=10)
-
-        item20=Label(hygine,text="mask",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=5,column=0,pady=11)
-        item20_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.mask).grid(row=5,column=1,padx=10)
-
-        item21=Label(hygine,text="sanitizer",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=6,column=0,pady=11)
-        item21_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.sanitizer).grid(row=6,column=1,padx=10)
+        # hygine=LabelFrame(self.root,text="Snacks",font=("Arial Black",12),relief=GROOVE,bd=10,bg="#E5B4F3",fg="#6C3483")
+        # hygine.place(x=677,y=180,height=380,width=325)
+        #
+        # item15=Label(hygine,text="soap",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=0,column=0,pady=11)
+        # item15_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.soap).grid(row=0,column=1,padx=10)
+        #
+        # item16=Label(hygine,text="shampoo",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=1,column=0,pady=11)
+        # item16_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.shampoo).grid(row=1,column=1,padx=10)
+        #
+        # item17=Label(hygine,text="lotion",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=2,column=0,pady=11)
+        # item17_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.lotion).grid(row=2,column=1,padx=10)
+        #
+        # item18=Label(hygine,text="cream",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=3,column=0,pady=11)
+        # item18_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.cream).grid(row=3,column=1,padx=10)
+        #
+        # item19=Label(hygine,text="foam",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=4,column=0,pady=11)
+        # item19_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.foam).grid(row=4,column=1,padx=10)
+        #
+        # item20=Label(hygine,text="mask",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=5,column=0,pady=11)
+        # item20_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.mask).grid(row=5,column=1,padx=10)
+        #
+        # item21=Label(hygine,text="sanitizer",font=("Arial Black",11),bg="#E5B4F3",fg="#6C3483").grid(row=6,column=0,pady=11)
+        # item21_entry=Entry(hygine,borderwidth=2,width=15,textvariable=self.sanitizer).grid(row=6,column=1,padx=10)
         #=====================================================billarea==============================================================================
-        billarea=Frame(self.root,bd=10,relief=GROOVE,bg="#E5B4F3")
-        billarea.place(x=1010,y=188,width=330,height=372)
-
-        bill_title=Label(billarea,text="Bill Area",font=("Arial Black",17),bd=7,relief=GROOVE,bg="#E5B4F3",fg="#6C3483").pack(fill=X)
-
-        scrol_y=Scrollbar(billarea,orient=VERTICAL)
-        self.txtarea=Text(billarea,yscrollcommand=scrol_y.set)
-        scrol_y.pack(side=RIGHT,fill=Y)
-        scrol_y.config(command=self.txtarea.yview)
-        self.txtarea.pack(fill=BOTH,expand=1)
-        #=================================================billing menu=========================================================================================
-        billing_menu=LabelFrame(self.root,text="Billing Summery- CodeWithCurious",font=("Arial Black",12),relief=GROOVE,bd=10,bg="#A569BD",fg="white")
-        billing_menu.place(x=0,y=560,relwidth=1,height=137)
-
-        total_snacks=Label(billing_menu,text="Total Snacks Price",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=0,column=0)
-        total_snacks_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.total_sna).grid(row=0,column=1,padx=10,pady=7)
-
-        total_grocery=Label(billing_menu,text="Total Grocery Price",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=1,column=0)
-        total_grocery_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.total_gro).grid(row=1,column=1,padx=10,pady=7)
-
-
-        total_hygine=Label(billing_menu,text="Total Beauty & Hygine Price",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=2,column=0)
-        total_hygine_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.total_hyg).grid(row=2,column=1,padx=10,pady=7)
-
-        tax_snacks=Label(billing_menu,text="Snacks Tax",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=0,column=2)
-        tax_snacks_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.a).grid(row=0,column=3,padx=10,pady=7)
-
-        tax_grocery=Label(billing_menu,text="Grocery Tax",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=1,column=2)
-        tax_grocery_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.b).grid(row=1,column=3,padx=10,pady=7)
-
-
-        tax_hygine=Label(billing_menu,text="Beauty & Hygine Tax",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=2,column=2)
-        tax_hygine_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.c).grid(row=2,column=3,padx=10,pady=7)
-
-        button_frame=Frame(billing_menu,bd=7,relief=GROOVE,bg="#6C3483")
-        button_frame.place(x=830,width=500,height=95)
-
-        button_total=Button(button_frame,text="Total Bill",font=("Arial Black",15),pady=10,bg="#E5B4F3",fg="#6C3483",command=lambda:total(self)).grid(row=0,column=0,padx=12)
-        button_clear=Button(button_frame,text="Clear Field",font=("Arial Black",15),pady=10,bg="#E5B4F3",fg="#6C3483",command=lambda:clear(self)).grid(row=0,column=1,padx=10,pady=6)
-        button_exit=Button(button_frame,text="Exit",font=("Arial Black",15),pady=10,bg="#E5B4F3",fg="#6C3483",width=8,command=lambda:exit1(self)).grid(row=0,column=2,padx=10,pady=6)
-        intro(self)
+        # billarea=Frame(self.root,bd=10,relief=GROOVE,bg="#E5B4F3")
+        # billarea.place(x=1010,y=188,width=330,height=372)
+        #
+        # bill_title=Label(billarea,text="Bill Area",font=("Arial Black",17),bd=7,relief=GROOVE,bg="#E5B4F3",fg="#6C3483").pack(fill=X)
+        #
+        # scrol_y=Scrollbar(billarea,orient=VERTICAL)
+        # self.txtarea=Text(billarea,yscrollcommand=scrol_y.set)
+        # scrol_y.pack(side=RIGHT,fill=Y)
+        # scrol_y.config(command=self.txtarea.yview)
+        # self.txtarea.pack(fill=BOTH,expand=1)
+        # #=================================================billing menu=========================================================================================
+        # billing_menu=LabelFrame(self.root,text="Billing Summery- CodeWithCurious",font=("Arial Black",12),relief=GROOVE,bd=10,bg="#A569BD",fg="white")
+        # billing_menu.place(x=0,y=560,relwidth=1,height=137)
+        #
+        # total_snacks=Label(billing_menu,text="Total Snacks Price",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=0,column=0)
+        # total_snacks_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.total_sna).grid(row=0,column=1,padx=10,pady=7)
+        #
+        # total_grocery=Label(billing_menu,text="Total Grocery Price",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=1,column=0)
+        # total_grocery_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.total_gro).grid(row=1,column=1,padx=10,pady=7)
+        #
+        #
+        # total_hygine=Label(billing_menu,text="Total Beauty & Hygine Price",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=2,column=0)
+        # total_hygine_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.total_hyg).grid(row=2,column=1,padx=10,pady=7)
+        #
+        # tax_snacks=Label(billing_menu,text="Snacks Tax",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=0,column=2)
+        # tax_snacks_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.a).grid(row=0,column=3,padx=10,pady=7)
+        #
+        # tax_grocery=Label(billing_menu,text="Grocery Tax",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=1,column=2)
+        # tax_grocery_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.b).grid(row=1,column=3,padx=10,pady=7)
+        #
+        #
+        # tax_hygine=Label(billing_menu,text="Beauty & Hygine Tax",font=("Arial Black",11),bg="#A569BD",fg="white").grid(row=2,column=2)
+        # tax_hygine_entry=Entry(billing_menu,width=30,borderwidth=2,textvariable=self.c).grid(row=2,column=3,padx=10,pady=7)
+        #
+        # button_frame=Frame(billing_menu,bd=7,relief=GROOVE,bg="#6C3483")
+        # button_frame.place(x=830,width=500,height=95)
+        #
+        # button_total=Button(button_frame,text="Total Bill",font=("Arial Black",15),pady=10,bg="#E5B4F3",fg="#6C3483",command=lambda:total(self)).grid(row=0,column=0,padx=12)
+        # button_clear=Button(button_frame,text="Clear Field",font=("Arial Black",15),pady=10,bg="#E5B4F3",fg="#6C3483",command=lambda:clear(self)).grid(row=0,column=1,padx=10,pady=6)
+        # button_exit=Button(button_frame,text="Exit",font=("Arial Black",15),pady=10,bg="#E5B4F3",fg="#6C3483",width=8,command=lambda:exit1(self)).grid(row=0,column=2,padx=10,pady=6)
+        # intro(self)
 
 
 def total(self):
