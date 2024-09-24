@@ -2,6 +2,7 @@ import webbrowser
 import pyautogui
 import time
 import os
+import clipboard
 
 # Function to send multiple messages to a specific WhatsApp number
 def send_message_to_number(phone_number, message, repeat_count):
@@ -14,7 +15,8 @@ def send_message_to_number(phone_number, message, repeat_count):
 
     # Step 3: Send the message multiple times by typing and pressing Enter
     for _ in range(repeat_count):
-        pyautogui.typewrite(message)  # Type the message
+        clipboard.copy(message)  # Copy the message to the clipboard
+        pyautogui.hotkey('ctrl', 'v')  # Paste the message
         pyautogui.press("enter")  # Press 'Enter' to send the message
         time.sleep(0.5)  # Add a small delay between each message
 
@@ -25,8 +27,8 @@ def send_message_to_number(phone_number, message, repeat_count):
 
 
 # Example usage
-phone_number = "+91 9925723400"  # Replace with the target phone number, include country code
-message = "Hi "  # The message you want to send
+phone_number = "+91 90337 56856"  # Replace with the target phone number, include country code
+message = ""  # The message you want to send
 repeat_count = 10  # Number of times you want to send the message
 
 send_message_to_number(phone_number, message, repeat_count)
