@@ -252,7 +252,7 @@ def total(self):
 
     self.at=self.atta.get()*42
     self.pa=self.pasta.get()*120
-    self.oi=self.oil.get()*113
+    self.oi=self.oil.get()*113  
     self.ri=self.rice.get()*160
     self.su=self.sugar.get()*55
     self.te=self.tea.get()*480
